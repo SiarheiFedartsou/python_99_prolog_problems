@@ -75,20 +75,20 @@ def compress_list(l):
 	#return list(set(l))
 
 # 8
-def pack_list(l):
-	'''
-	>>> pack_list([1, 1, 1, 1, 2, 2, 2, 3, 7, 3, 3, 2, 2, 5, 5, 6])
-	[[1, 1, 1, 1], [2, 2, 2], [3], [7], [3, 3], [2, 2], [5, 5], [6]]
-	'''
-	result = []
-	t = []
-	for i, x in enumerate(l[:-1]):
-		t.append(x)
-		if not l[i] == l[i+1]: 
-			result.append(t)
-			t = []
-	return result
-	#return list(set(l))
+def pack_list(l): pass
+#	'''
+#	>>> pack_list([1, 1, 1, 1, 2, 2, 2, 3, 7, 3, 3, 2, 2, 5, 5, 6])
+#	[[1, 1, 1, 1], [2, 2, 2], [3], [7], [3, 3], [2, 2], [5, 5], [6]]
+#	'''
+#	result = []
+#	t = []
+#	for i, x in enumerate(l[:-1]):
+#		t.append(x)
+#		if not l[i] == l[i+1]: 
+#			result.append(t)
+#			t = []
+#	return result
+#	#return list(set(l))
 # 14
 def dupl_list(l):
 	'''
