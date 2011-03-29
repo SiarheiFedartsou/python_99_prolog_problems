@@ -23,7 +23,7 @@ def element_at(l, k):
 	>>> element_at([1, 2, 3, 4, 5], 3)
 	4
 	'''
-	return l[k];
+	return l[k]
 
 # 4		
 def number_of_list_elements(l):
@@ -51,10 +51,7 @@ def is_palindrome(l):
 	>>> is_palindrome([1, 4, 2, 3, 2, 2, 1])  
 	False
 	'''
-	for i in xrange(len(l) / 2 + 1):
-		if l[i] != l[len(l) - i - 1]:
-			return False
-	return True
+	return l == reversed_list(l)
 
 # 7
 def flat_list_structure(l):
@@ -63,18 +60,35 @@ def flat_list_structure(l):
 	[1, 2, 3, 3, 5]
 	'''
 	result = []
-	for x in l:
-		if type(x) is types.ListType:
-			result.extend(flat_list_structure(x))
-		else:
-			result.append(x)
+	for x in l: 
+		if type(x) is types.ListType: result.extend(flat_list_structure(x)) 
+		else: result.append(x)
 	return result
 
 # 8
 def compress_list(l):
-	pass
+	'''
+	>>> compress_list([1, 1, 1, 1, 2, 2, 2, 3, 7, 3, 3, 2, 2, 5, 5, 6])
+	[1, 2, 3, 7, 3, 2, 5, 6]
+	'''
+	return [x for i, x in enumerate(l[:-1]) if not l[i] == l[i + 1]] + [l[-1]]
 	#return list(set(l))
 
+# 8
+def pack_list(l):
+	'''
+	>>> pack_list([1, 1, 1, 1, 2, 2, 2, 3, 7, 3, 3, 2, 2, 5, 5, 6])
+	[[1, 1, 1, 1], [2, 2, 2], [3], [7], [3, 3], [2, 2], [5, 5], [6]]
+	'''
+	result = []
+	t = []
+	for i, x in enumerate(l[:-1]):
+		t.append(x)
+		if not l[i] == l[i+1]: 
+			result.append(t)
+			t = []
+	return result
+	#return list(set(l))
 # 14
 def dupl_list(l):
 	'''
@@ -113,6 +127,7 @@ def slice(l, a, b):
 	['c', 'd', 'e', 'f', 'g']
 	'''
 	return l[a-1:b]
+	
 # 19 
 def rotate(l, n):
 	'''
@@ -154,6 +169,13 @@ def length_sort(l):
 	'''
 	return list(sorted(l, key = len))
 	
+# 28b
+def freq_length_sort(l):
+	'''
+	>>> freq_length_sort([['a', 'b', 'c'], ['d', 'e'], ['f', 'g', 'h'], ['d', 'e'], ['i', 'j', 'k', 'l'], ['m', 'n'], ['o']])
+	[['i', 'j', 'k', 'l'], ['o'], ['a', 'b', 'c'], ['f', 'g', 'h'], ['d', 'e'], ['d', 'e'], ['m', 'n']]
+	'''
+	return list(sorted(l, key = lambda x: map(len, l).count(len(x))))
 
 import doctest
 doctest.testmod()
