@@ -2,7 +2,6 @@ import itertools
 import types
 
 # 4
-
 def arith_puzzle(l):
 	'''
 	>>> arith_puzzle([2, 3, 5, 7, 11])
@@ -21,6 +20,19 @@ def arith_puzzle(l):
 					result.append(expr)
 			except: pass
 	return result
+
+# 5 
+def english_number_words(n):
+	'''
+	>>> english_number_words(175)
+	'one-seven-five'
+	>>> english_number_words(0)
+	'zero'
+	>>> english_number_words(201)
+	'two-zero-one'
+	'''
+	number_words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+	return '-'.join([number_words[int(c)] for c in str(n)])
 
 import doctest
 doctest.testmod()

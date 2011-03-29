@@ -12,10 +12,10 @@ def is_tree(tree):
 	True
 	>>> is_tree(('a', None, None))
 	True
-	>>> is_tree(tuple([None]))
+	>>> is_tree((None,))
 	True
 	'''
-	if not len(tree) == 3: return tree == tuple([None])
+	if not len(tree) == 3: return tree == (None,)
 	for subtree in tree:
 		if type(subtree) is types.TupleType: return is_tree(subtree) 
 	return True
