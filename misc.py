@@ -31,8 +31,8 @@ def english_number_words(n):
 	>>> english_number_words(201)
 	'two-zero-one'
 	'''
-	number_words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
-	return '-'.join([number_words[int(c)] for c in str(n)])
+#	number_words = 
+	return '-'.join(['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'][number_words[int(c)] for c in str(n)])
 
 import doctest
 doctest.testmod()
