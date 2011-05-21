@@ -112,6 +112,7 @@ def drop_every_n(l, n):
 	['a', 'b', 'd', 'e', 'g', 'h', 'k']
 	'''
 	return [x for i, x in enumerate(l) if not (i + 1) % n == 0]
+	
 # 17
 def split(l, n):
 	'''
@@ -137,6 +138,22 @@ def rotate(l, n):
 	['g', 'h', 'a', 'b', 'c', 'd', 'e', 'f']
 	'''
 	return l[n:] + l[:n]
+
+# 20
+def remove_at(l, n):
+	'''
+	>>> remove_at(['a', 'b', 'c', 'd'], 2)
+	['a', 'b', 'd']
+	'''
+	return l[:n] + l[n+1:]
+
+# 21
+def insert_at(l, x, n):
+	'''
+	>>> insert_at(['a', 'b', 'c', 'd'], 'x', 2)
+	['a', 'b', 'x', 'c', 'd']
+	'''
+	return l[:n] + [x] + l[n:]
 	
 # 22
 def create_range(a, b):
@@ -152,7 +169,8 @@ def random_select(l, n):
 	it is not good idea :)
 	'''
 	return [random.choice(l) for x in xrange(n)]
-	
+
+
 # 25 
 def random_permutation(l):
 	'''
